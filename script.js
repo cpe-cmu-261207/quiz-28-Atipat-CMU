@@ -4,6 +4,7 @@ const txtName = document.getElementById("p-name");
 const txtAddress = document.getElementById("p-address");
 const txtEmail = document.getElementById("p-email");
 const imgProfile = document.getElementById("img-profile");
+const btnGen = document.getElementById("btn-random");
 
 async function callApi() {
   showLoading(true);
@@ -30,7 +31,11 @@ function setUser(data) {
   imgProfile.src = data.picture.large;
 }
 
-async function generateMore() {}
+btnGen.onclick = async () => {
+  btnGen.innerText = "Loadding";
+  callApi();
+  btnGen.innerText = "Generate more ..";
+};
 
 // Main start here
 callApi();
